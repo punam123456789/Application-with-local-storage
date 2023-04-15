@@ -56,16 +56,8 @@ function register(event){
 
 
 function getdata(){
-    var username=document.getElementById("userName").value;
-    // console.log(username,"name here");
-    var Email=document.getElementById("userEmail").value;
-    // console.log(Email," email here");
-    var pass=document.getElementById("userPassword").value;
-    // console.log(pass," password here");
-    var confirmpass=document.getElementById("userConfirmPassword").value;
-    // console.log(confirmpass," password here");
-    var userdata={username:username,email:Email,password:pass,confirmpassword:confirmpass};
-    console.log(userdata);
-    var obj= JSON.parse(localStorage.getItem("userdata"))
+   
+    
+    var obj= JSON.parse(localStorage.getItem("Users"))
     console.log("obj",obj)
 }
