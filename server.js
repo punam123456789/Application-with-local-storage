@@ -3,13 +3,13 @@ function register(event) {
     // console.log("seccess");
     // alert("success");
     event.preventDefault();
-    var username = document.getElementById("userName").value;
+    var username = document.getElementById("username").value;
     // console.log(username,"name here");
-    var Email = document.getElementById("userEmail").value;
+    var Email = document.getElementById("useremail").value;
     // console.log(Email," email here");
-    var pass = document.getElementById("userPassword").value;
+    var pass = document.getElementById("userpassword").value;
     // console.log(pass," password here");
-    var confirmpass = document.getElementById("userConfirmPassword").value;
+    var confirmpass = document.getElementById("userconfirmpassword").value;
 
     // console.log(confirmpass," password here");
 
@@ -58,7 +58,7 @@ function register(event) {
                 var LS = JSON.parse(localStorage.getItem("Users")) || [];
                 console.log(LS);
                 for (var i = 0; i < LS.length; i++) {
-                    if (LS[i].email == Email) {
+                    if (LS[i].useremail== Email) {
                         // console.log("match");
                         flag = true;
                     }
@@ -73,10 +73,10 @@ function register(event) {
 
                     alert("Registration succefully");
 
-                    document.getElementById("userName").value = "";
-                    document.getElementById("userEmail").value = "";
-                    document.getElementById("userPassword").value = "";
-                    document.getElementById("userConfirmPassword").value = "";
+                    document.getElementById("username").value = "";
+                    document.getElementById("useremail").value = "";
+                    document.getElementById("userpassword").value = "";
+                    document.getElementById("userconfirmpassword").value = "";
                 }
                 else {
                     alert("Email already Present");
@@ -97,38 +97,37 @@ function register(event) {
 }
 
 
-// function login(event){
-//     event.preventDefault();
-//     var userEmail = document.getElementById("userEmail").value;
-    
-//     var userPassword = document.getElementById("userPassword").value;
-   
-//     console.log(userEmail.userPassword);
-//     // var userdata = { username: username, email: Email, password: pass, confirmpassword: confirmpass };
-//     //     console.log(userdata);
 
-//     var LS = JSON.parse(localStorage.getItem("Users")) || [];
-//     console.log(LS,"-LS");
+// Step 1  : Get user typed data from html to JS = Completed
+// Step 2 : Get all users data into JS from LS = Completed
+// Step 3 : Iterate all users (LS) with user typed data 
+// Step 4 : If email & password both match at same time then
+//  show user suceess
+function login(event) {
+    event.preventDefault();
+    alert("Login function called.")
+    var userEmail = document.getElementById("email").value;
+    var userPassword = document.getElementById("password").value;
+    // console.log(userEmail,userPassword,"check here")
 
+    var LS = JSON.parse(localStorage.getItem("Users"));
+    // console.log(LS, " - LS here")
 
-//     var flag = false;
-//     for(var i=0;i<LS.length;i++){
-//         console.log(i,LS[i]);
-//         console.log(i,LS[i].userEmail,LS[i].userPassword);
-//         if(LS[i].userEmail==userEmail && LS[i.userPassword==userPassword]){
-
-//             alert("Email & password match");
-//             flag = true;
-//         }
-//     }
-//     if(flag == true){
-//         alert("login succssfull");
-//     }
-//     else{
-//         alert("not match");
-//     }
-// }
-
+    var flag = false;
+    for (var i = 0; i < LS.length; i++) {
+        console.log(i, LS[i])
+        // console.log(i, LS[i].userEmail, LS[i].userPassword )
+        if (LS[i].userEmail == userEmail && LS[i].userPassword == userPassword) {
+            // alert("Email and Pass matchecd")
+            flag = true;
+        }
+    }
+    if (flag == true) {
+        alert("Login successfull.")
+    } else {
+        alert("Credential not matched.")
+    }
+}
 
 
 
